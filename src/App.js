@@ -76,16 +76,16 @@ const verovio = require("verovio");
 
 
 const urlParams = new URLSearchParams(window.location.search);
+const pieceURL = urlParams.get("pieceURL");
+const ema_expression = urlParams.get("ema_expression");
+const measure_range = JSON.parse(decodeURIComponent(urlParams.get("measure_range")));
 
 
 const App = ({ pieceURL, ema_expression, measure_range }) => {
   useEffect(() => {
     // Retrieve the arguments from the URL query parameters
     
-    const pieceURL = urlParams.get("pieceURL");
-    const ema_expression = urlParams.get("ema_expression");
-    const measure_range = JSON.parse(decodeURIComponent(urlParams.get("measure_range")));
-    const fetchData = async () => {
+const fetchData = async () => {
       const response = await fetch(pieceURL);
       const meiXML = await response.text();
 
