@@ -153,6 +153,11 @@ import "./styles.css";
 import EmaMei from "./ema-mei.js";
 const verovio = require("verovio");
 
+const urlParams = new URLSearchParams(window.location.search);
+const pieceURL = urlParams.get("pieceURL");
+const ema_expression = urlParams.get("ema_expression");
+const measure_range = JSON.parse(decodeURIComponent(urlParams.get("measure_range")));
+
 const App = ({ pieceURL, ema_expression, measure_range }) => {
   useEffect(() => {
     const fetchData = async () => {
