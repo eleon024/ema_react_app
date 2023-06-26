@@ -73,7 +73,7 @@ import "./styles.css";
 import EmaMei from "./ema-mei.js";
 
 const verovio = require("verovio");
-
+console.log({ EmaMei, verovio });
 
 const urlParams = new URLSearchParams(window.location.search);
 const pieceURL = urlParams.get("pieceURL");
