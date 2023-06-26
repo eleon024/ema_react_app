@@ -1,0 +1,9 @@
+.App {
+  font-family: sans-serif;
+  text-align: center;
+}
+
+.panel {
+  border: 1px solid lightgray;
+  min-height: 800px;
+}
