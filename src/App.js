@@ -73,7 +73,7 @@ import "./styles.css";
 import EmaMei from "./ema-mei.js";
 
 const verovio = require("verovio");
-console.log({ EmaMei, verovio });
+const fs = require("fs");
 
 const urlParams = new URLSearchParams(window.location.search);
 const pieceURL = urlParams.get("pieceURL");
@@ -97,6 +97,7 @@ const fetchData = async () => {
         .getAttribute("plist");
 
       // Render MEI data to Verovio
+      verovio.module.onRuntimeInitialized = function (){
       const tk = new verovio.toolkit();
       tk.setOptions({
         scale: 50,
@@ -115,7 +116,8 @@ const fetchData = async () => {
         const eventEl = meiEl.querySelector(id);
         eventEl.style.fill = "red";
       });
-    };
+    }
+  };
 
     fetchData();
   }, [pieceURL, ema_expression, measure_range]);
