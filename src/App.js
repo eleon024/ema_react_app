@@ -86,6 +86,7 @@ import verovio from "verovio";
 import { createRoot } from "react-dom/client";
 import { render } from "react-dom";
 
+const fetch = require("node-fetch");
 const urlParams = new URLSearchParams(window.location.search);
 const pieceURL = urlParams.get("pieceURL");
 const ema_expression = urlParams.get("ema_expression");
