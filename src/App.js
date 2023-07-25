@@ -98,9 +98,9 @@ const App = ({ pieceURL, ema_expression, measure_range }) => {
       const meiXML = await response.text();
 
       // Process EMA expression on the MEI data
-      const processor = EmaMei.withDocumentString(meiXML, ema_expression);
-      const highlightedMei = processor.getSelection();
-      const selectedIds = highlightedMei
+      const processor = await EmaMei.withDocumentString(meiXML, ema_expression);
+      const highlightedMei = await processor.getSelection();
+      const selectedIds = await highlightedMei
         .querySelector("annot[type=ema_highlight]")
         .getAttribute("plist");
 
@@ -110,22 +110,23 @@ const App = ({ pieceURL, ema_expression, measure_range }) => {
         scale: 50,
         adjustPageWidth: true,
       });
-      tk.select(measure_range);
+       tk.select(measure_range);
       tk.redoLayout();
-      const svg = tk.renderData(
+      
+      const svg =  tk.renderData(
         new XMLSerializer().serializeToString(highlightedMei),
         {}
       );
 
-      const meiEl = document.getElementById("mei");
+      const meiEl =  document.getElementById("mei");
       meiEl.innerHTML = svg;
       selectedIds.split(" ").map((id) => {
-        const eventEl = meiEl.querySelector(id);
+        const eventEl =  meiEl.querySelector(id);
         eventEl.style.fill = "red";
       });
     };
 
-    fetchData();
+     fetchData();
   }, [pieceURL, ema_expression, measure_range]);
 
   return (
