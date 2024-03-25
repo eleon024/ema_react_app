@@ -1,10 +1,9 @@
 {
   "files": {
-    "main.js": "/ema_react_app/static/js/main.a96a87f5.js",
     "index.html": "/ema_react_app/index.html",
-    "main.a96a87f5.js.map": "/ema_react_app/static/js/main.a96a87f5.js.map"
+    "App.js": "/ema_react_app/src/App.js"
   },
   "entrypoints": [
-    "static/js/main.a96a87f5.js"
+    "static/App.js"
   ]
 }
