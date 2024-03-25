@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.js": "/ema_react_app/static/js/main.c3ccdefe.js",
+    "main.js": "/ema_react_app/static/js/main.70622963.js",
     "index.html": "/ema_react_app/index.html",
-    "main.c3ccdefe.js.map": "/ema_react_app/static/js/main.c3ccdefe.js.map"
+    "main.70622963.js.map": "/ema_react_app/static/js/main.70622963.js.map"
   },
   "entrypoints": [
-    "static/js/main.c3ccdefe.js"
+    "static/js/main.70622963.js"
   ]
 }
