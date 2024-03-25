@@ -86,10 +86,6 @@ import { createRoot } from "react-dom/client";
 import EmaMei from "./ema-mei.js";
 import verovio from "verovio";
 
-const urlParams = new URLSearchParams(window.location.search);
-const pieceURL = urlParams.get("pieceURL");
-const ema_expression = urlParams.get("ema_expression");
-const measure_range = JSON.parse(decodeURIComponent(urlParams.get("measure_range")));
 
 const App = ({ pieceURL, ema_expression, measure_range }) => {
   useEffect(() => {
@@ -100,7 +96,7 @@ const App = ({ pieceURL, ema_expression, measure_range }) => {
       // Construct the new path to fetch from your local or GitHub repo
       // Example for a GitHub repo: 'https://github.com/<username>/<repo>/Music_Files/' + fileName
       // Adjust the base URL as needed for your local setup or specific GitHub repo path
-      const newPieceURL = `https://github.com/eleon024/ema_react_app/Music_Files/${fileName}`;
+      const newPieceURL = `https://raw.githubusercontent.com/eleon024/ema_react_app/main/Music_Files/${fileName}`;
 
       const response = await fetch(newPieceURL);
       const meiXML = await response.text();
@@ -148,11 +144,5 @@ const App = ({ pieceURL, ema_expression, measure_range }) => {
   );
 };
 
-createRoot(document.getElementById("root")).render(
-  <App
-    pieceURL={pieceURL}
-    ema_expression={ema_expression}
-    measure_range={measure_range}
-  />
-);
+export default App;
 
