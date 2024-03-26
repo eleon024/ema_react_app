@@ -1,12 +1,12 @@
 
 # CRIM Intervals Highlighter React App
 
-The CRIM Intervals Highlighter React App is a cutting-edge web application designed for musicologists, researchers, and enthusiasts focusing on the analysis of musical intervals within the context of the CRIM (Citations: The Renaissance Imitation Mass) project. Leveraging the Encoded Music Analysis (EMA) expressions, this tool allows for the visualization and highlighting of specific intervals or passages within music scores, utilizing URLs to music pieces in MEI (Music Encoding Initiative) format. It is particularly adept at handling trim intervals, enabling users to focus on and analyze distinct sections of a score.
+The CRIM Intervals Highlighter React App is a cutting-edge web application designed for musicologists, researchers, and enthusiasts focusing on the analysis of musical intervals within the context of the CRIM (Citations: The Renaissance Imitation Mass) project. Leveraging the [Enhancing Music Notation Addressability (EMA) expressions](https://github.com/music-addressability/ema), this tool allows for the visualization and highlighting of specific intervals or passages within music scores, utilizing URLs to music pieces in MEI (Music Encoding Initiative) format. It is particularly adept at handling trim intervals, enabling users to focus on and analyze distinct sections of a score.
 
 ## Features
 
 - **Dynamic Music Score Rendering:** Renders music scores from MEI format URLs.
-- **EMA Expression and Trim Interval Highlighting:** Highlights sections of a music score based on Encoded Music Analysis (EMA) expressions and specified trim intervals, allowing for in-depth analysis of specific musical elements.
+- **EMA Expression and CRIM Interval Highlighting:** Highlights sections of a music score based on Enhancing Music Notation Addressability (EMA) expressions and can be used in conjunction with specified [CRIM](https://github.com/HCDigitalScholarship/intervals) intervals, allowing for in-depth analysis of specific musical elements.
 - **User-Friendly Interface:** Provides an intuitive interface for users to input URLs, EMA expressions, and trim intervals for immediate score analysis and visualization.
 - **Responsive Design:** Optimized for various devices, ensuring accessibility and a seamless user experience across platforms.
 
