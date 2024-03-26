@@ -1,7 +1,7 @@
 
 # CRIM Intervals Highlighter React App
 
-The CRIM Intervals Highlighter React App is a cutting-edge web application designed for musicologists, researchers, and enthusiasts focusing on the analysis of musical intervals within the context of the CRIM (Citations: The Renaissance Imitation Mass) project. Leveraging the [Enhancing Music Notation Addressability (EMA) expressions](https://github.com/music-addressability/ema), this tool allows for the visualization and highlighting of specific intervals or passages within music scores, utilizing URLs to music pieces in MEI (Music Encoding Initiative) format. It is particularly adept at handling trim intervals, enabling users to focus on and analyze distinct sections of a score.
+The CRIM Intervals Highlighter React App is a cutting-edge web application designed for musicologists, researchers, and enthusiasts focusing on the analysis of musical intervals within the context of the CRIM (Citations: The Renaissance Imitation Mass) project. Leveraging the [Enhancing Music Notation Addressability (EMA) expressions](https://github.com/music-addressability/ema), this tool allows for the visualization and highlighting of specific intervals or passages within music scores, utilizing URLs to music pieces in MEI (Music Encoding Initiative) format. When used with CRIM intervals, it is particularly adept at enabling users to focus on and analyze distinct sections of a score.
 
 ## Features
 
