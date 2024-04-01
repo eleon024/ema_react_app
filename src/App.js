@@ -6,7 +6,11 @@ import "./styles.css";
 
 const App = () => {
   const [svgContent, setSvgContent] = useState("");
+  const [title, setTitle] = useState("");
+  const [composer, setComposer] = useState("");
+  const [emaExpression, setEmaExpression] = useState("");
   const [error, setError] = useState("");
+
 
   useEffect(() => {
     const urlParams = new URLSearchParams(window.location.search);
@@ -27,6 +31,14 @@ const App = () => {
         const meiXML = await response.text();
         if (!response.ok) throw new Error("Failed to fetch MEI data.");
 
+        // Extract and set title and composer from the MEI data
+        const meiDoc = new DOMParser().parseFromString(meiXML, "text/xml");
+        const titleElement = meiDoc.querySelector('meiHead > fileDesc > titleStmt > title');
+        const composerElement = meiDoc.querySelector('meiHead > fileDesc > titleStmt > respStmt > persName[role="composer"]');
+        if (titleElement) setTitle(titleElement.textContent);
+        if (composerElement) setComposer(composerElement.textContent);
+
+        
         const processor = EmaMei.withDocumentString(meiXML, emaExpression);
         const highlightedMei = processor.getSelection();
         const selectedIds = highlightedMei.querySelector("annot[type=ema_highlight]").getAttribute("plist");
@@ -58,6 +70,11 @@ const App = () => {
   return (
     <div className="App" style={{ width: "400px" }}>
       <h1>EMA Sandbox</h1>
+        <div>
+        <strong>Title:</strong> {title}<br />
+        <strong>Composer:</strong> {composer}<br />
+        <strong>EMA Expression:</strong> {emaExpression}
+      </div>
       <h2>Verovio Score:</h2>
       <div id="mei" style={{ width: "400px" }} dangerouslySetInnerHTML={{ __html: svgContent }}></div>
     </div>
