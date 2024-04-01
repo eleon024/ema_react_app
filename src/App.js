@@ -16,13 +16,14 @@ const App = () => {
     const urlParams = new URLSearchParams(window.location.search);
     const pieceURL = urlParams.get("pieceURL");
     const emaExpression = urlParams.get("ema_expression");
+    setEmaExpression(emaExpression);
     const fileName = pieceURL.split('/').pop();
     const newPieceURL = 'https://raw.githubusercontent.com/eleon024/ema_react_app/main/Music_Files/'+fileName;
     const measure_range = JSON.parse(decodeURIComponent(urlParams.get("measure_range")));
     verovio.module.onRuntimeInitialized = async () => {
       const tk = new verovio.toolkit();
       tk.setOptions({
-        scale: 50,
+        scale: 75,
         adjustPageWidth: true,
       });
 
@@ -37,6 +38,7 @@ const App = () => {
         const composerElement = meiDoc.querySelector('meiHead > fileDesc > titleStmt > respStmt > persName[role="composer"]');
         if (titleElement) setTitle(titleElement.textContent);
         if (composerElement) setComposer(composerElement.textContent);
+
 
         
         const processor = EmaMei.withDocumentString(meiXML, emaExpression);
@@ -67,18 +69,20 @@ const App = () => {
     return <div>Error: {error}</div>;
   }
 
-  return (
-    <div className="App" style={{ width: "400px" }}>
-      <h1>EMA Sandbox</h1>
-        <div>
-        <strong>Title:</strong> {title}<br />
-        <strong>Composer:</strong> {composer}<br />
-        <strong>EMA Expression:</strong> {emaExpression}
-      </div>
-      <h2>Verovio Score:</h2>
-      <div id="mei" style={{ width: "400px" }} dangerouslySetInnerHTML={{ __html: svgContent }}></div>
+return (
+  <div className="App" style={{ width: "100%", display: "flex", flexDirection: "column", alignItems: "center" }}>
+    <div className="metadata-container">
+      <h2><strong>Title:</strong> {title}<br /></h2>
+      <h2><strong>Composer:</strong> {composer}<br /></h2>
+      <h3><strong>EMA Expression:</strong> {emaExpression}</h3><br/>
+      
     </div>
-  );
+    <h2>Verovio Score:</h2>
+    <div id="mei" style={{ width: "100%" }} dangerouslySetInnerHTML={{ __html: svgContent }}></div>
+  </div>
+);
+
+  
 };
 
 export default App;
