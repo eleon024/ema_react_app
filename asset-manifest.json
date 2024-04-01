@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/ema_react_app/static/css/main.c19ac2b9.css",
-    "main.js": "/ema_react_app/static/js/main.bef84b07.js",
+    "main.css": "/ema_react_app/static/css/main.3ab0bf91.css",
+    "main.js": "/ema_react_app/static/js/main.15342e10.js",
     "index.html": "/ema_react_app/index.html",
-    "main.c19ac2b9.css.map": "/ema_react_app/static/css/main.c19ac2b9.css.map",
-    "main.bef84b07.js.map": "/ema_react_app/static/js/main.bef84b07.js.map"
+    "main.3ab0bf91.css.map": "/ema_react_app/static/css/main.3ab0bf91.css.map",
+    "main.15342e10.js.map": "/ema_react_app/static/js/main.15342e10.js.map"
   },
   "entrypoints": [
-    "static/css/main.c19ac2b9.css",
-    "static/js/main.bef84b07.js"
+    "static/css/main.3ab0bf91.css",
+    "static/js/main.15342e10.js"
   ]
 }
