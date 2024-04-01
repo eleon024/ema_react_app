@@ -10,6 +10,7 @@ const App = () => {
   const [composer, setComposer] = useState("");
   const [emaExpression, setEmaExpression] = useState("");
   const [error, setError] = useState("");
+  const [observation, setObservation] = useState("");
 
 
   useEffect(() => {
@@ -19,7 +20,7 @@ const App = () => {
     const fileName = pieceURL.split('/').pop();
     const newPieceURL = 'https://raw.githubusercontent.com/eleon024/ema_react_app/main/Music_Files/'+fileName;
     const measure_range = JSON.parse(decodeURIComponent(urlParams.get("measure_range")));
-    const observation = if (observation) {urlParams.get("observation");}
+    const observation = urlParams.get("observation");
     verovio.module.onRuntimeInitialized = async () => {
       const tk = new verovio.toolkit();
       tk.setOptions({
@@ -38,7 +39,7 @@ const App = () => {
         const composerElement = meiDoc.querySelector('meiHead > fileDesc > titleStmt > respStmt > persName[role="composer"]');
         if (titleElement) setTitle(titleElement.textContent);
         if (composerElement) setComposer(composerElement.textContent);
-
+ 
 
         
         const processor = EmaMei.withDocumentString(meiXML, emaExpression);
@@ -62,6 +63,10 @@ const App = () => {
         console.error("Error processing MEI data:", error);
         setError("Failed to process MEI data.");
       }
+
+      if (observation) {
+        setObservation(observation);
+      }
     };
   }, []);
 
@@ -74,7 +79,16 @@ return (
     <div className="metadata-container">
       <h2><strong>Title:</strong> {title}<br /></h2>
       <h2><strong>Composer:</strong> {composer}<br /></h2>
-      
+      {observation && (
+                <div>
+                <h2><strong>Observation:</strong></h2>
+                {observation.split('\n').map((line, index) => (
+                  // Using <div> here, but you can choose <span> or <p> depending on your styling needs
+                  // The key is index which is sufficient here as the content is static
+                  <p><div key={index}>{line}</div></p>
+                ))}
+              </div>
+      )}
     </div>
     <div id="mei" style={{ width: "100%" }} dangerouslySetInnerHTML={{ __html: svgContent }}></div>
   </div>
