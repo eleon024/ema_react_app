@@ -55,7 +55,7 @@ or
 npm start
 ```
 
-Now, the app should be running on `http://localhost:3000/`. Append your query parameters (`pieceURL`, `ema_expression`, and `measure_range`) to the URL to test its functionality.
+Now, the app should be running on `http://localhost:3000/`. Append your query parameters (`pieceURL`, `ema_expression`, `measure_range`, and `observation`) to the URL to test its functionality.
 
 ## Contributing
 
