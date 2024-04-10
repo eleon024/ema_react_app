@@ -29,10 +29,27 @@ const App = () => {
         adjustPageWidth: true,
       });
 
+
+ let meiXML = ''; // Define meiXML here so it's accessible throughout the function
+
+ try {
+   let response = await fetch(pieceURL);
+   meiXML = await response.text();
+   if (!response.ok) throw new Error("Failed to fetch MEI data from pieceURL.");
+ } catch (error) {
+   console.error("Error fetching MEI data from pieceURL:", error);
+   try {
+     const response = await fetch(newPieceURL);
+     meiXML = await response.text();
+     if (!response.ok) throw new Error("Failed to fetch MEI data from newPieceURL.");
+   } catch (error) {
+     console.error("Error fetching MEI data from newPieceURL:", error);
+     setError("Failed to fetch MEI data.");
+     return; // Exit the function if both fetch attempts fail
+   }
+ }
+
       try {
-        const response = await fetch(newPieceURL);
-        const meiXML = await response.text();
-        if (!response.ok) throw new Error("Failed to fetch MEI data.");
         
         // Construct the selection JSON object and stringify it
         const selectionObject = { "measureRange": measure_range };
